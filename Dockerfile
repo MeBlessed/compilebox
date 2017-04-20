@@ -15,7 +15,7 @@ FROM gcr.io/bitnami-containers/minideb-extras:jessie-r13-buildpack
 
 MAINTAINER Bitnami <containers@bitnami.com>
 
-ENV STACKSMITH_STACK_ID="9pfmfca" \
+ENV STACKSMITH_STACK_ID="n62bab9" \
     STACKSMITH_STACK_NAME="Node.js for MeBlessed/compilebox" \
     STACKSMITH_STACK_PRIVATE="1"
 
@@ -29,10 +29,11 @@ ENV PATH=/opt/bitnami/node/bin:/opt/bitnami/python/bin:$PATH \
 
 ## STACKSMITH-END: Modifications below this line will be unchanged when regenerating
 
-# Node base template
+# ExpressJS template
 COPY . /app
 WORKDIR /app
 
 RUN npm install
 
-CMD ["node"]
+EXPOSE 3000
+CMD ["npm", "start"]
